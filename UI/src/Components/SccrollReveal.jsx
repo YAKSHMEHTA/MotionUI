@@ -1,6 +1,7 @@
 import React, { useLayoutEffect,useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import './Style.css'
 import Lenis from "@studio-freight/lenis";
 import "../App.css";
 
