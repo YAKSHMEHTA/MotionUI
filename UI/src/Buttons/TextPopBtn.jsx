@@ -3,10 +3,10 @@ import gsap from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function TextPopBtn({height,width,text}) {
+function TextPopBtn({ height, width, text, borderColor,borderRadius }) {
   const containerRef = useRef(null);
   const [flag, setFlag] = useState(false);
-    console.log(height)
+  console.log(height);
   const handleHover = () => {
     setFlag((prev) => !prev);
   };
@@ -30,14 +30,17 @@ function TextPopBtn({height,width,text}) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-        const tl = gsap.timeline();
-      tl.to(".text-par", {
-        y: "-50%",
-        duration: 0.25,
-        stagger:0.09,
-        ease: "power1.inOut",
-      },">");
-      
+      const tl = gsap.timeline();
+      tl.to(
+        ".text-par",
+        {
+          y: "-50%",
+          duration: 0.25,
+          stagger: 0.09,
+          ease: "power1.inOut",
+        },
+        ">",
+      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -49,7 +52,11 @@ function TextPopBtn({height,width,text}) {
         className={`bg-white overflow-clip`}
         onMouseOut={null}
         onMouseEnter={handleHover}
-        style={{borderRadius:"5rem",height:height+'em',width:width+'em'}}
+        style={{
+          borderRadius: "5rem",
+          height: height + "em",
+          width: width + "em",
+        }}
       >
         <div className="text-par flex flex-col  overflow-clip">
           <p className="relative">{text}</p>
