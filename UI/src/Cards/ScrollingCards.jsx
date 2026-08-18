@@ -18,23 +18,41 @@ function ScrollingCards() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parentRef.current,
-          start: "top 10%",
-          scrub:1,
-          pin:true,
-          end: "+=1500px",
+          start: "top top",
+          scrub: 1,
+          pin: true,
+          end: "+=1300px",
           markers: true,
         },
       });
-      tl.to(".card1", 
-        {top:"-80%",left:"-35%",rotate:10,ease:"power2.out"},
-    )
-    tl.to(".card2", 
-        {top:"-80%",left:"-35%",rotate:"-5%",ease:"sine.out"},"-=0.45"
-    )
-    tl.to(".card3", 
-        {top:"-80%",left:"-35%",rotate:10,ease:"sine.inOut"},"-=0.52"
-    )
-    })
+      tl.to(".text",{
+        y:-255,
+        ease:"sine.out"
+      })
+      tl.to(".card1", {
+        top: "-40%",
+        left: "-35%",
+        rotate: 10,
+        ease: "power2.out",
+      },"=");
+      tl.to(
+        ".card2",
+        { top: "-40%", left: "-55%", rotate: -5, ease: "sine.out" },
+        "-=0.48",
+      );
+      tl.to(
+        ".card3",
+        { top: "-40%", left: "-35%", rotate: 10, ease: "sine.inOut" },
+        "-=0.52",
+      );
+      tl.to(".card4", {
+        top: "-40%",
+        left: "-35%",
+        rotate: 10,
+        ease: "power2.out",
+      },"-=0.28");
+    });
+
     return () => {
       ctx.revert();
     };
@@ -43,7 +61,9 @@ function ScrollingCards() {
   return (
     <div className="overflow-hidden">
       <div className="w-full  overflow-hidden h-screen bg-cyan-800"></div>
-      <div ref={parentRef} className="flex relative h-100 parent w-full ">
+      <div ref={parentRef} className="flex  relative h-100 parent w-full ">
+        <div className="flex w-full justify-center"><h1 className=" text-6xl   text z-10 text-white">YAKSH MEHTA</h1></div>
+        
         <div className="card1  absolute top-[80%] -rotate-20 -right-[35%]">
           <DemoCard></DemoCard>
         </div>
@@ -53,7 +73,7 @@ function ScrollingCards() {
         <div className="card3 absolute top-[80%] -rotate-20 -right-[35%]">
           <DemoCard></DemoCard>
         </div>
-        <div className="card4 absolute bottom-30 -right-[30%]">
+        <div className="card4 absolute top-[80%] -rotate-20 -right-[35%]">
           <DemoCard></DemoCard>
         </div>
       </div>

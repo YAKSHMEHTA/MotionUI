@@ -2,7 +2,7 @@ import React from "react";
 
 export const DemoCard = () => {
   return (
-    <div className="flex w-full max-w-100 h-140 flex-col py-30   overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 text-white shadow-xl transition-all duration-300 hover:border-neutral-700 hover:shadow-2xl">
+    <div className="flex w-full max-w-100 h-160 flex-col py-30   overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 text-white shadow-xl transition-all duration-300 hover:border-neutral-700 hover:shadow-2xl">
       {/* Top Banner / Visual Slot */}
       <div className="relative h-44 w-full  bg-gradient-to-br from-indigo-500/20 via-neutral-900 to-purple-500/10 p-4">
         <span className="absolute top-4 left-4 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-400 backdrop-blur-sm">
