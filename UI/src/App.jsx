@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import SccrollReveal from './Components/SccrollReveal.jsx'
 import TextPopBtn from './Buttons/TextPopBtn.jsx'
 import ScrollingCards from './Cards/ScrollingCards.jsx'
+import CursorTracker from './LandingPages/CursorTracker.jsx'
 import './App.css'
 import GenRandomTxt from './Texts/GenRandomTxt.jsx'
 
@@ -14,8 +15,7 @@ function App() {
   return (
     <>
       {/* <TextPopBtn height={1.5} width={6} text={"apply"} ></TextPopBtn> */}
-      <GenRandomTxt></GenRandomTxt>
-      <ScrollingCards></ScrollingCards>
+      <CursorTracker></CursorTracker>
     </>
   )
 }
