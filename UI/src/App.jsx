@@ -15,9 +15,9 @@ function App() {
 
   return (
     <>
-      {/* <TextPopBtn height={1.5} width={6} text={"apply"} ></TextPopBtn> */}
       <FlotingNavbar></FlotingNavbar>
       <CursorTracker></CursorTracker>
+      <div className="w-full h-screen bg-cyan-950"></div>
     </>
   )
 }

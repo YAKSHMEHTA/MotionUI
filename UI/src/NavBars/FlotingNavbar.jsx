@@ -1,14 +1,50 @@
-import React, { useLayoutEffect, useEffect, useRef } from "react";
+import React, { useLayoutEffect, useEffect, useRef, useEffectEvent } from "react";
 import gsap from "gsap";
 import "../App.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import Lenis from "@studio-freight/lenis";
 
+gsap.registerPlugin(useGSAP); 
+gsap.registerPlugin(ScrollTrigger);
+
 function FlotingNavbar() {
+
+  useGSAP(() => {
+
+    const fade = ()=>{
+      gsap.to(".par",{y:-150,opacity:0,duration:0.7,ease:"sine.out"});
+    }
+
+    const fadeIn = ()=>{
+      gsap.to(".par",{y:0,opacity:1,ease:"power2.out"});
+    }
+
+    const tl =gsap.timeline({
+    scrollTrigger:{
+      markers:true,
+      trigger:".par",
+      start:"top 5%",
+      end:"+=800px",
+      onUpdate:(self)=>{
+        if(self.direction > 0){
+          fade();
+        }else if(self.direction < 0){
+          fadeIn();
+        }
+      }
+    }
+
+  })
+  
+  },[])
+  
+
+
   return (
     <>
       <div className="flex justify-center ">
-        <div style={{paddingInline:"0.7rem"}} className="fixed top-10 h-13 flex items-center gap-3  left-center border-[2px] border-[#121212]  w-100 rounded-4xl px-5 bg-black border-solid z-50">
+        <div style={{paddingInline:"0.7rem"}} className="fixed par top-10 h-13 flex items-center gap-3  left-center border-[2px] border-[#121212]  w-100 rounded-4xl px-5 bg-black border-solid z-50">
           <div  className="flex justify-around items-center gap-1 w-full">
             <div
               style={{ paddingInline: "1rem",paddingBlock:"0.4rem" }}
